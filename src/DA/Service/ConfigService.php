@@ -20,16 +20,28 @@ class ConfigService extends Service
         }
         if(!isset($params['paths'])) {
             $params['paths'] = array(
-                __DIR__."../DA/Model/Entity"
+                __DIR__."/../Model/Entity"
             );
         }
         $config = Setup::createAnnotationMetadataConfiguration($params['paths'], $this->isDevMode);
 
-        $entityManager = EntityManager::create($app['db'], $config);
+        $entityManager = EntityManager::create($app['db.options'], $config);
 
         $app['db.orm'] = $entityManager;
 
+        $this->entityManager = $entityManager;
+
+        $app['db.orm.helper_set'] = new \Symfony\Component\Console\Helper\HelperSet(array(
+            'em' => new \Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper($entityManager)
+        ));
+
+
         return $app;
+    }
+
+    public function getEntityManager()
+    {
+        return $this->entityManager;
     }
 
 }
