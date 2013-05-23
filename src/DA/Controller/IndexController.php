@@ -27,6 +27,15 @@ class IndexController
 
         //$core_page = $app['db.orm']->find('DA\Model\Entity\ModuleEntity', 1);
 
+             //$classes = $app['db.orm']->getClassMetadataFactory()->getAllMetadata();
+            print_r($app['db.orm']->getClassMetadata());
+             $generator = new \Doctrine\ORM\Tools\EntityGenerator();
+             $generator->setGenerateAnnotations(true);
+             $generator->setGenerateStubMethods(true);
+             $generator->setRegenerateEntityIfExists(false);
+             $generator->setUpdateEntityIfExists(true);
+             $generator->generate($classes, '/path/to/generate/entities');
+
         //var_dump($core_page);exit;
         //var_dump($app['db.orm.helper_set']);exit;
 
