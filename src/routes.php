@@ -12,7 +12,7 @@ require_once('DA/Controller/CacheController.php');
 require_once('DA/Controller/ComponentController.php');
 require_once('DA/Controller/AccountController.php');
 require_once('DA/Controller/CommandController.php');
-
+require_once('DA/Controller/BaseController.php');
 function controller($shortName)
 {
 	//list($shortClass, $shortMethod) = explode('/', shortName, 2);

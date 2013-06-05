@@ -9,8 +9,9 @@ namespace DA\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Silex\Application;
+use DA\Controller\BaseController;
 
-class CommandController
+class CommandController extends BaseController
 {
     public function runcmd(Request $request, Application $app)
     {
