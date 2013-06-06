@@ -10,6 +10,7 @@ $app['loader'] = include(__DIR__.'/../../vendor/autoload.php');
 $app['loader']->add('DA\Model\Entity\ModuleEntity',__DIR__.'/../../src');
 $app['loader']->add('DA\Service\ConfigService',__DIR__.'/../../src');
 $app['loader']->add('DA\Service',__DIR__.'/../../src');
+$app['loader']->add('DA\Controller\BaseController',__DIR__.'/../../src');
 
 // Local
 $app['locale'] = 'en';

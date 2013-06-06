@@ -7,8 +7,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints as Assert;
 use Silex\Application;
+use DA\Controller\BaseController;
 
-class LoginController
+class LoginController extends BaseController
 {
 	public function index(Request $request,Application $app)
 	{
