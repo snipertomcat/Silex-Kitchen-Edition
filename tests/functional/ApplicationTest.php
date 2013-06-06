@@ -9,6 +9,7 @@ class ApplicationTest extends WebTestCase
     public function createApplication()
     {
         // Silex
+        require_once(__DIR__.'/../../vendor/autoload.php');
         $app = new Application();
         require __DIR__.'/../../resources/config/test.php';
         require __DIR__.'/../../src/app.php';
