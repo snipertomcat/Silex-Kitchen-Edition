@@ -3,6 +3,9 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use DA\Model\Entity\ModuleEntity;
 use DA\Service\ConfigService;
+use Aura\Marshal\Manager;
+use Aura\Marshal\Type\Builder as TypeBuilder;
+use Aura\Marshal\Relation\Builder as RelationBuilder;
 
 $app['loader'] = include(__DIR__.'/../../vendor/autoload.php');
 
@@ -58,3 +61,12 @@ $app['db.orm.em'] = $serviceConfig->getEntityManager();
 
 // User
 $app['security.users'] = array('username' => array('ROLE_USER', 'password'));
+
+// Aura Marshal
+$app['aura.marshal'] = function($app) {
+    $manager = new \Aura\Marshal\Manager(
+        new TypeBuilder,
+        new RelationBuilder
+    );
+    return $manager;
+};

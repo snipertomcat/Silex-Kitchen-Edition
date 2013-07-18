@@ -18,6 +18,9 @@ class IndexController
 		$app['session']->getFlashBag()->add('success', 'Success flash message');
 		$app['session']->getFlashBag()->add('error', 'Error flash message');
 
+        $app['aura.marshal']->setType('authors', ['identity_field' => 'id']);
+        print_r($app['aura.marshal']);
+
 		return $app['twig']->render('index.html.twig');
 	}
 
