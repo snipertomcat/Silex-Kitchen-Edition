@@ -1,1 +1,5 @@
-/vendor
+resources/cache/*
+resources/log/*
+vendor/
+web/assets/*
+/.project
